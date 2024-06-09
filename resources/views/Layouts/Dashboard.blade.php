@@ -23,7 +23,7 @@
                 <span class="nav-item">Dashboard</span>
               </a>
               </li>
-              <li><a href="./User/User.php">
+              <li><a href="Customer">
                 <i class='bx bxs-user-plus'></i>
                 <span class="nav-item">User</span>
               </a>
@@ -52,7 +52,7 @@
         <div class="card">
     <div class="card-content">
         <div class="card-item">
-            <h4>Jumlah User </h4>
+            <h4>Jumlah Customer </h4>
             <i class='bx bxs-user'></i>
         </div>
         <div class="card-item">

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E - Pajak</title>
-    <link rel="stylesheet" href="../Css/Dashboard.css" />
+    <link rel="stylesheet" href="{{asset('Css/Dashboard.css')}}" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -16,25 +16,25 @@
             </div>
             <ul>
                 <li>
-                    <a href="Dashboard.html">
+                    <a href="Dashboard">
                         <i class='bx bxs-home'></i>
                         <span class="nav-item">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="Customer">
                         <i class='bx bxs-user-plus'></i>
                         <span class="nav-item">User</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Layanan.html">
+                    <a href="Layanan">
                         <i class='bx bx-task'></i>
                         <span class="nav-item">E Faktur</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Logout.html" class="logout">
+                    <a href="Logout" class="logout">
                         <i class='bx bx-log-out'></i>
                         <span class="nav-item">Logout</span>
                     </a>
@@ -51,6 +51,9 @@
                 <button type="button" class="btn-tambah">
                     <a href="Layanan-Entry" class="btn-tambah">Tambah Data</a>
                 </button>
+                <button type="button" class="btn-tambah">
+				<a href="Layanan-cetak" class="btn-tambah">Cetak Data</a>
+			    </button>
                 <table class="table-data">
                     <thead>
                         <tr>

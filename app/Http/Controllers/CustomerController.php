@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Layanan;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class LayananController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $dtLayanan = Layanan::all();
-        return view('Layouts.Layanan.Layanan',compact('dtLayanan'));
+        $dtCustomer = Customer::all();
+        return view('Layouts.Customer.Customer',compact('dtCustomer'));
     }
 
     /**
@@ -20,7 +20,7 @@ class LayananController extends Controller
      */
     public function create()
     {
-        return view('Layouts.Layanan.Layanan-Entry');
+        return view('Layouts.Customer.Customer-Entry');
     }
 
     /**
@@ -28,15 +28,14 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        Layanan::create([
-            'Id_faktur' =>$request->Id_faktur,
+        Customer::create([
             'Id_customer' =>$request->Id_customer,
-            'NPWP' =>$request->NPWP,
-            'No_fakturPajak' =>$request->No_fakturPajak,
-            'DPP' =>$request->DPP,
-            'PPN' =>$request->PPN,
+            'Nama_customer' =>$request->Nama_customer,
+            'Alamat' =>$request->Alamat,
+            'no_telepon' =>$request->no_telepon,
+            'Perusahaan' =>$request->Perusahaan,
         ]);
-        return redirect ('Layanan')->with('success', 'Data  Berhasil Ditambahkan!');
+        return redirect ('Customer')->with('success', 'Data  Berhasil Ditambahkan!');
     }
 
     /**
@@ -44,7 +43,7 @@ class LayananController extends Controller
      */
     public function show(string $id)
     {
-        
+        //
     }
 
     /**
@@ -52,8 +51,8 @@ class LayananController extends Controller
      */
     public function edit(string $id)
     {
-        $lay = Layanan::findorfail($id);
-        return view('Layouts.Layanan.Layanan-Edit',compact('lay'));
+        $cus = Customer::findorfail($id);
+        return view('Layouts.Customer.Customer-Edit',compact('cus'));
     }
 
     /**
@@ -61,9 +60,9 @@ class LayananController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $lay = Layanan::findorfail($id);
-        $lay ->update($request->all());
-        return redirect ('Layanan');
+        $cus = Customer::findorfail($id);
+        $cus ->update($request->all());
+        return redirect ('Customer');
     }
 
     /**
@@ -71,15 +70,15 @@ class LayananController extends Controller
      */
     public function destroy(string $id)
     {
-        $lay = Layanan::findorfail($id);
-        $lay->delete();
+        $cus = Customer::findorfail($id);
+        $cus->delete();
         return back();
     }
     public function downloadpdf()
     {
-    $dtCetakLayanan = Layanan::all();
-        $pdf = 'PDF'::loadview('Layouts.Layanan.Layanan-cetak',compact('dtCetakLayanan'));
+    $dtCetakCustomer = Customer::all();
+        $pdf = 'PDF'::loadview('Layouts.Customer.Customer-cetak',compact('dtCetakCustomer'));
         $pdf->setPaper('A4','portrait');
-        return $pdf->stream('Data-Faktur.pdf');
+        return $pdf->stream('Data-Customer.pdf');
     }
 }
